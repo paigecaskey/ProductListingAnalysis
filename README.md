@@ -13,9 +13,13 @@ The goal of this project is to empower resellers with actionable insights for pr
 Data for this project was gathered using a [web scraper](https://github.com/paigecaskey/WebScraperSelenium) and cleaned in RStudio. 
 ### Data Key and Transforming Techniques
 ➔ Datetime (Continuous): Date and time the product was posted
+
 ➔ Link (Textual): Unique link to the product
+
   ◆ used as a unique identifier to remove duplicates
+  
 ➔ Price (Continuous Numeric): Current,full price the item is listed for
+
   ◆ Removed ‘$’ symbol, making the variable fully numeric, removed outliers using z scores
 ➔ Description (Textual): Description of the product provided by seller on listing
 ➔ Brand: Brand of the product
