@@ -2,8 +2,11 @@
 This project aims to develop predictive models to assist clothing resellers in accurately pricing their items, considering factors such as trendiness, brand, quality, and seasonality. By leveraging data-driven techniques, sellers, particularly those new to the platform, can optimize pricing strategies to enhance competitiveness and increase sales. With guidance on pricing, sellers can save time and effort, especially when dealing with a diverse range of items, ultimately empowering them to succeed in the resale market.
 ## Table of Contents
 [Intro](https://github.com/paigecaskey/ProductListingAnalysis/#Intro)
+
 [Data Gathering](https://github.com/paigecaskey/ProductListingAnalysis/#Data-Gathering)
+
 [Exploratory Analysis](https://github.com/paigecaskey/ProductListingAnalysis/#Exploratory-Analysis)
+
 [Predictive Model](https://github.com/paigecaskey/ProductListingAnalysis/#Predictive-Model)
 ## Intro
 Pricing dynamics for resell items is extremely important for resellers in terms of managing stock and buying strategies. Using exploratory analysis and predictive modeling, sellers are able to strategize pricing to maximize profit. 
@@ -21,35 +24,65 @@ Data for this project was gathered using a [web scraper](https://github.com/paig
 ➔ Price (Continuous Numeric): Current,full price the item is listed for
 
   ◆ Removed ‘$’ symbol, making the variable fully numeric, removed outliers using z scores
+  
 ➔ Description (Textual): Description of the product provided by seller on listing
+
 ➔ Brand: Brand of the product
+
   ◆ If brand was “NULL”,replaced with “None” 
+  
 ➔ Condition (Categorical): Condition of which the product is in
+
   ◆ Removed values where condition was “NULL” 
+  
 ➔ Title (Textual): Title of the product as listed by seller
+
   ◆ Extracted last word and made it a new categorical column called “Type”
+  
 ➔ Size (Categorical): Size of the item
+
   ◆ If sizes were listed as “MultipleSizes”,it meant the seller was most likely dropshipping (buying multiple products new   from a cheaper website and reselling them for more), so binary column was created called “Dropshipping”
+  
 ➔ Amt.Sold (Continuous Numeric): Amount of items the seller has sold in total to date
+
   ◆ Removed rows that did not contain the word“ Sold” (formatted wrong),then extracted the amount sold and made the value numeric
+  
 ➔ Activity (Categorical): When the seller was most recently active on the app
+
 ➔ Recent.Review1 (Textual): The seller’s most recent customer review
+
 ➔ Time.Listed (Continuous Numeric): How long ago the product was listed
+
   ◆ Formatted to numeric
+  
 ➔ Sold.and.Reviews (Textual): How many shop reviews the seller has and what their total average rating is out of 5 stars
+
   ◆ Converted to a numeric column, which provides the seller’s rating out of 5 stars
+  
 ➔ Discount (Categorical): If the product offers a discount, what % off it is
+
   ◆ Extracted the numeric discount, equal to 0 if discount was “NULL” making the column numeric
+  
 ➔ In.Bags (Textual): How many people’s bags the item is in currently
+
   ◆ Extracted the number of how many bags the item was currently in, making the variable numeric
+  
 ➔ Like (Continuous Numeric): How many likes the item has currently (up to 99)
+
   ◆ If Like was “NULL” change it to 0, making it fully numeric
+  
 ➔ Free.Shipping (Textual): If the item has free domestic shipping or not
+
   ◆ Changed to binary, 1 for free shipping, 0 for no free shipping
+  
 ➔ Color (Categorical):Color of the item
+
 ➔ Material (Categorical): Material of the item/Style
+
 ➔ Style (Categorical):Style of the item
+
   ◆ All three style variables (Color, Material, and Style) were changed to binary and made into separate columns for each unique value they contained.
+  
 ## Exploratory Analysis
 Seller's utilization of "free shipping" as an incentive for buyers not only enhances the perceived value of the product but also contributes to increased profitability. This strategy encourages sales and also serves to maintain overall costs by adjusting the base price to offset shipping expenses. Our analysis reveals a notable trend wherein items offering free shipping command significantly higher average prices compared to those without such incentives, shown in the graph below. This underscores the effectiveness of free shipping as a marketing tool in driving consumer purchasing decisions.
 
